@@ -1,3 +1,6 @@
+ import css from './Profile.module.css';
+import clsx from 'clsx';
+
 export const Profile = ({
     name,
     tag,
@@ -6,28 +9,28 @@ export const Profile = ({
     stats:{ followers, views, likes },
 }) => {
     return(
-        <div>
-            <div>
-                <img
+        <div className={css.container}>
+            <div className={css.profileInfo}>
+                <img className={css.avatar}
                  src={image}
                  alt="User avatar" />
-                 <p>{name}</p>
-                 <p>@{tag}</p>
-                 <p>{location}</p>
+                 <p className={css.profileName}>{name}</p>
+                 <p className={css.profileText}>@{tag}</p>
+                 <p className={css.profileText}>{location}</p>
                  </div>
                  
-                 <ul>
-                    <li>
-                    <span>Followers </span>
-                    <span> {followers} </span>
+                 <ul className={css.list}>
+                    <li className={css.listItem}>
+                    <span className={css.stats}>Followers </span>
+                    <span className={clsx(css.stats, css.statsValue)}> {followers} </span>
                     </li>
-                    <li>
-                    <span>Views </span>
-                    <span>{views}</span>
+                    <li className={css.listItem}>
+                    <span className={css.stats}>Views </span>
+                    <span className={clsx(css.stats, css.statsValue)}>{views}</span>
                     </li>
-                    <li>
-                     <span>Likes </span>
-                     <span>{likes}</span>
+                    <li className={css.listItem}>
+                     <span className={css.stats}>Likes </span>
+                     <span className={clsx(css.stats, css.statsValue)}>{likes}</span>
                      </li>
                      </ul>
                      </div>
